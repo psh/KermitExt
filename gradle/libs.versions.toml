@@ -1,0 +1,5 @@
+[versions]
+kermit = "2.0.0-RC2"
+
+[libraries]
+touchlab-kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
