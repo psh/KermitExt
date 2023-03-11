@@ -4,6 +4,8 @@ plugins {
 }
 
 allprojects {
+    group = "com.gatebuzz.kermit.ext"
+
     repositories {
         mavenLocal()
         mavenCentral()

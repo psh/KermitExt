@@ -1,8 +1,9 @@
-rootProject.name = "KermitExt"
+rootProject.name = "Kermit Extensions"
 
-include("lib")
-
-project(":lib").name = "kermit-ext"
+include(
+    "kermit-ext",
+    "slf4j-over-kermit"
+)
 
 pluginManagement {
     resolutionStrategy {

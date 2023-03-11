@@ -10,6 +10,9 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+# Random git config (this is personal preference)
+.gitattributes
+
 # Package Files #
 *.jar
 *.war

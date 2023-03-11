@@ -1,5 +1,10 @@
 [versions]
 kermit = "2.0.0-RC2"
+slf4j = "2.0.6"
 
 [libraries]
-touchlab-kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+touchlab-kermit-api = { module = "co.touchlab:kermit", version.ref = "kermit" }
+touchlab-kermit-core = { module = "co.touchlab:kermit-core", version.ref = "kermit" }
+touchlab-kermit-test = { module = "co.touchlab:kermit-test", version.ref = "kermit" }
+
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }

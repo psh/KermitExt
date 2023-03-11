@@ -47,7 +47,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(libs.touchlab.kermit)
+                implementation(libs.touchlab.kermit.api)
             }
         }
 
@@ -59,7 +59,6 @@ kotlin {
     }
 }
 
-group = "com.gatebuzz.kermit.ext"
 version = "1.0.0"
 
 extensions.findByType<org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension>()?.apply {
