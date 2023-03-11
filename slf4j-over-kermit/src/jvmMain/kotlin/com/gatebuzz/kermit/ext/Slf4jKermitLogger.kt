@@ -44,7 +44,7 @@ class Slf4jKermitLogger(config: LoggerConfig) : AbstractLogger() {
 
         messagePattern.let { logger.log(
             severity,
-            marker?.toString() ?: "",
+            marker?.name ?: "",
             throwable,
             messagePattern?.format(arguments) ?: ""
         ) }
