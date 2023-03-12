@@ -1,10 +1,3 @@
-rootProject.name = "Kermit Extensions"
-
-include(
-    "kermit-ext",
-    "slf4j-over-kermit"
-)
-
 pluginManagement {
     resolutionStrategy {
         eachPlugin {
@@ -26,3 +19,9 @@ pluginManagement {
     }
 }
 
+rootProject.name = "Kermit Extensions"
+
+include(
+    "kermit-ext",
+    "slf4j-over-kermit"
+)

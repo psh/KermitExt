@@ -4,16 +4,16 @@ plugins {
     `maven-publish`
 }
 
-version = "1.0.0"
-
 kotlin {
     jvm()
+
+    jvmToolchain(11)
 
     sourceSets {
         val jvmMain by getting {
             dependencies {
-                implementation(libs.slf4j.api)
-                implementation(libs.touchlab.kermit.core)
+                api(libs.slf4j.api)
+                api(libs.touchlab.kermit.core)
             }
         }
     }

@@ -8,7 +8,7 @@ import org.slf4j.event.Level
 import org.slf4j.event.Level.*
 import org.slf4j.helpers.AbstractLogger
 
-class Slf4jKermitLogger(config: LoggerConfig) : AbstractLogger() {
+class Slf4jKermitLogger(private val name: String, config: LoggerConfig) : AbstractLogger() {
     private val logger = BaseLogger(config)
     override fun getName(): String = "slf4j-over-kermit"
 
@@ -42,11 +42,17 @@ class Slf4jKermitLogger(config: LoggerConfig) : AbstractLogger() {
             else -> Severity.Verbose
         }
 
-        messagePattern.let { logger.log(
-            severity,
-            marker?.name ?: "",
-            throwable,
-            messagePattern?.format(arguments) ?: ""
-        ) }
+        val formatted = if (messagePattern != null && arguments != null) {
+            String.format(messagePattern, *(arguments.toList().toTypedArray()))
+        } else null
+
+        messagePattern.let {
+            logger.log(
+                severity,
+                marker?.toString() ?: name,
+                throwable,
+                formatted ?: (messagePattern ?: "")
+            )
+        }
     }
 }

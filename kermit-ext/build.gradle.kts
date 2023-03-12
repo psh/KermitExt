@@ -13,10 +13,10 @@ kotlin {
         publishAllLibraryVariants()
     }
     jvm()
-    js(BOTH) {
-        browser()
-        nodejs()
-    }
+//    js(BOTH) {
+//        browser()
+//        nodejs()
+//    }
 
     macosX64()
     macosArm64()
@@ -43,6 +43,8 @@ kotlin {
     androidNativeArm64()
     androidNativeX86()
     androidNativeX64()
+
+    jvmToolchain(11)
 
     sourceSets {
         val commonMain by getting {
