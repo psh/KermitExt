@@ -1,4 +1,4 @@
-# KermitExt
+# Kermit Extensions
 
 Kermit Logger Extensions
 
