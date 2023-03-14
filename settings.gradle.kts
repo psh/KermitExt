@@ -23,5 +23,6 @@ rootProject.name = "Kermit Extensions"
 
 include(
     "kermit-ext",
-    "slf4j-over-kermit"
+    "slf4j-over-kermit",
+    "kermit-over-slf4j"
 )
