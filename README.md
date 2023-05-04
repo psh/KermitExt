@@ -10,7 +10,7 @@
 ## Kermit API Extensions
 
 ### SLF4J (JVM)
-* `slf4j-over-kermit` - SLF4J logger provider (API) plugging into Kermit Core
+* `slf4j-over-kermit` - SLF4J logger provider (API) over Kermit Core
 * `kermit-over-slf4j` - Kermit log writer that pushes to SLF4J
 
 ### Timber (Android)
