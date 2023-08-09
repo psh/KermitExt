@@ -9,42 +9,32 @@ repositories {
 }
 
 kotlin {
-    android {
+    androidTarget {
         publishAllLibraryVariants()
     }
+    androidNativeArm32()
+    androidNativeArm64()
+    androidNativeX86()
+    androidNativeX64()
+
     jvm()
-//    js(BOTH) {
-//        browser()
-//        nodejs()
-//    }
+    jvmToolchain(17)
 
     macosX64()
     macosArm64()
     iosX64()
     iosArm64()
-    iosArm32()
     iosSimulatorArm64()
     watchosArm32()
     watchosArm64()
     watchosSimulatorArm64()
-    watchosX86()
     watchosX64()
     tvosArm64()
     tvosSimulatorArm64()
     tvosX64()
 
     mingwX64()
-    mingwX86()
     linuxX64()
-    linuxArm32Hfp()
-    linuxMips32()
-
-    androidNativeArm32()
-    androidNativeArm64()
-    androidNativeX86()
-    androidNativeX64()
-
-    jvmToolchain(11)
 
     sourceSets {
         val commonMain by getting {
@@ -73,12 +63,12 @@ android {
     namespace = "com.gatebuzz.kermit.ext"
     compileSdk = 30
     defaultConfig {
-        minSdk = 16
+        minSdk = 26
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     val main by sourceSets.getting {

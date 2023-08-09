@@ -5,11 +5,11 @@ plugins {
 }
 
 kotlin {
-    android {
+    androidTarget {
         publishAllLibraryVariants()
     }
 
-    jvmToolchain(11)
+    jvmToolchain(17)
 
     sourceSets {
         val androidMain by getting {
@@ -25,10 +25,10 @@ android {
     namespace = "com.gatebuzz.kermit.ext"
     compileSdk = 30
     defaultConfig {
-        minSdk = 21
+        minSdk = 26
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }

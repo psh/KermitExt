@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.gatebuzz.kermit.ext
 
 import co.touchlab.kermit.LogWriter

@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.gatebuzz.kermit.ext
 
 import android.util.Log
