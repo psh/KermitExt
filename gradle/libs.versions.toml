@@ -1,13 +1,13 @@
 [versions]
-kermit = "2.0.0-RC4"
+kermit = "2.0.0-RC5"
 slf4j = "2.0.6"
 timber = "5.0.1"
+okio = "3.5.0"
 
 [libraries]
 touchlab-kermit-api = { module = "co.touchlab:kermit", version.ref = "kermit" }
 touchlab-kermit-core = { module = "co.touchlab:kermit-core", version.ref = "kermit" }
 touchlab-kermit-test = { module = "co.touchlab:kermit-test", version.ref = "kermit" }
-
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
-
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
