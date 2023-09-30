@@ -9,6 +9,20 @@
 
 ## Kermit API Extensions
 
+### Kermit Config
+* `kermit-config` - builder style config to get your root logger
+
+```kotlin
+    val rootLogger = Kermit {
+        minSeverity(Severity.Warn)
+        + platformLogWriter()
+    }
+
+    // ...
+
+    val loggerWithTag = rootLogger.withTag("bare.bones.App")
+```
+
 ### SLF4J (JVM)
 * `slf4j-over-kermit` - SLF4J logger provider (API) over Kermit Core
 * `kermit-over-slf4j` - Kermit log writer that pushes to SLF4J
