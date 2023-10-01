@@ -5,11 +5,17 @@
 ### Multiplatform - `kermit-ext`
 
 * Syslogd level mappings from Kermit severities
-* Bunyan logger level mappings from Kermit severities
+```kotlin
+    Severity.syslogdLevel()
+```
 
+* Bunyan logger level mappings from Kermit severities
+```kotlin
+    Severity.bunyanLevel()
+```
 ## Kermit API Extensions
 
-### Kermit Config
+### Multiplatform - Kermit Config
 * `kermit-config` - builder style config to get your root logger
 
 ```kotlin
