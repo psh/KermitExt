@@ -17,26 +17,18 @@ class Kermit {
     }
 
     interface Builder {
-        fun path(path: String): Builder
         fun tag(tag: String): Builder
         fun minSeverity(severity: Severity): Builder
         fun setLogWriters(vararg logWriter: LogWriter): Builder
         fun addLogWriter(vararg logWriter: LogWriter): Builder
-        operator fun LogWriter.plusAssign(logWriter: LogWriter)
         operator fun LogWriter.unaryPlus()
         fun build(): Logger
     }
 
     internal class LoggerBuilder : Builder {
-        private var path: String? = null
         private var tag: String = ""
         private var logWriters: MutableList<LogWriter> = mutableListOf()
         private var minSeverity: Severity = Severity.Verbose
-
-        override fun path(path: String): Builder {
-            this.path = path
-            return this
-        }
 
         override fun tag(tag: String): Builder {
             this.tag = tag
@@ -53,10 +45,6 @@ class Kermit {
             return this
         }
 
-        override operator fun LogWriter.plusAssign(logWriter: LogWriter) {
-            logWriters.add(logWriter)
-        }
-
         override operator fun LogWriter.unaryPlus() {
             logWriters.add(this)
         }
@@ -68,6 +56,7 @@ class Kermit {
 
         override fun build(): Logger {
             if (logWriters.isEmpty()) throw Exception("At least one log writer is needed")
+
             return Logger(
                 StaticConfig(minSeverity, logWriters.toList())
             )
