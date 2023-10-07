@@ -35,6 +35,22 @@ or, if you're a fan of the Java style builders
         .addLogWriter(platformLogWriter())
         .build()
 ```
+
+### Multiplatform - Filesystem logfiles
+* `kermit-filesystem` - writes kermit logs to file (where **Okio** Filesystem is supported) with optional log file rolling based on max file size.
+```kotlin
+val rootLogger = Kermit {
+    minSeverity(Severity.Verbose)
+
+    + platformLogWriter()
+
+    + FilesystemLogWriter {
+        logPath("./logs/log.txt")
+        rollLogAtSize(1200)    // Bytes (Optional) - skip if you dont want logs to roll
+    }
+}
+```
+
 ### SLF4J (JVM)
 * `slf4j-over-kermit` - SLF4J logger provider (API) over Kermit Core
 * `kermit-over-slf4j` - Kermit log writer that pushes to SLF4J

@@ -19,7 +19,7 @@ fun main() {
 
         + FilesystemLogWriter {
             logPath("./logs/log.txt")
-            rollLogAtSize(1200)
+            rollLogAtSize(1200)    // Bytes (Optional) - skip if you dont want logs to roll
         }
     }
 
