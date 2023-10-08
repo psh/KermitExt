@@ -23,6 +23,7 @@ rootProject.name = "Kermit Extensions"
 
 include(
     "kermit-ext",
+    "kermit-color",
     "kermit-config",
     "kermit-filesystem",
     "timber-over-kermit",
