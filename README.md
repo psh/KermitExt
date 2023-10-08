@@ -15,7 +15,10 @@
 ```
 
 ## Formatting
-* JVM - `kermit-color` - message formatter that adds ANSI color to the terminal output (using the [Jansi](http://fusesource.github.io/jansi/) JVM library)
+
+### JVM - `kermit-color`
+
+* Message formatter that adds ANSI color to the terminal output (using the [Jansi](http://fusesource.github.io/jansi/) JVM library)
 
 ```kotlin
     .platformLogWriter(withColor())
