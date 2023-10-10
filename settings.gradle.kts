@@ -27,6 +27,7 @@ include(
     "kermit-config",
     "kermit-filesystem",
     "kermit-long-names",
+    "kermit-spring",
     "timber-over-kermit",
     "slf4j-over-kermit",
     "kermit-over-slf4j"
