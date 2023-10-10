@@ -60,6 +60,20 @@ or, if you're a fan of the Java style builders
         .build()
 ```
 
+### Multiplatform - Long names
+
+* `kermit-long-names` - for people who prefer to write
+
+```kotlin
+    Logger.info(...)
+```
+
+rather than
+
+```kotlin
+    Logger.i(...)
+```
+
 ### Multiplatform - Filesystem logfiles
 
 * `kermit-filesystem` - writes kermit logs to file (where **Okio** Filesystem is supported) with optional log file rolling based on max file size.
