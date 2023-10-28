@@ -5,6 +5,7 @@ plugins {
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -15,20 +16,9 @@ kotlin {
     sourceSets {
         val jvmMain by getting {
             dependencies {
-                implementation("org.fusesource.jansi:jansi:2.4.0")
-                implementation("org.springframework.boot:spring-boot:3.1.4")
-            }
-        }
-
-        val commonMain by getting {
-            dependencies {
                 api(libs.touchlab.kermit.api)
-            }
-        }
-
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
+                api("com.gatebuzz.kermit.ext:kermit-color:1.0.0")
+                implementation("org.springframework.boot:spring-boot:3.1.4")
             }
         }
     }
