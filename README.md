@@ -1,5 +1,15 @@
 # Kermit Extensions
 
+This repo contains a series of working but (as yet) unreleased thought experiments spawned by the release of Kermit 2.0.  As I have run into places where an extension to Kermit's capabilities (for instance, integration with `syslogd` or, ANSI color formatting for messages) I've added subprojects.
+
+Areas of exploration so far
+* Native platform integrations
+* Message formatting
+* New API surfaces
+* New flavors of initialization
+* Integration with other loggers
+* (upcoming) "what if Kermit was the default logger in Spring?"
+
 ## Kermit Logger Extensions 
 
 ### ![Static Badge](https://img.shields.io/badge/Kotlin_Multiplatform-orange) `kermit-ext`
