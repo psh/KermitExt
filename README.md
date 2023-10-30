@@ -2,7 +2,7 @@
 
 ## Kermit Logger Extensions 
 
-### Multiplatform - `kermit-ext`
+### ![Static Badge](https://img.shields.io/badge/Kotlin_Multiplatform-orange) `kermit-ext`
 
 * Syslogd level mappings from Kermit severities
 ```kotlin
@@ -16,7 +16,7 @@
 
 ## Formatting
 
-### JVM - `kermit-color`
+### ![Static Badge](https://img.shields.io/badge/JVM-brightgreen) `kermit-color`
 
 * Message formatter that adds ANSI color to the terminal output (using the [Jansi](http://fusesource.github.io/jansi/) JVM library)
 
@@ -38,7 +38,7 @@ The `withColor()` and `withBrightColor()` extension functions can take a message
 
 ## Kermit API Extensions
 
-### Multiplatform - Kermit Config
+### ![Static Badge](https://img.shields.io/badge/Kotlin_Multiplatform-orange) Kermit Config
 
 * `kermit-config` - builder style config to get your root logger
 
@@ -60,7 +60,7 @@ or, if you're a fan of the Java style builders
         .build()
 ```
 
-### Multiplatform - Long names
+### ![Static Badge](https://img.shields.io/badge/Kotlin_Multiplatform-orange) Long names
 
 * `kermit-long-names` - for people who prefer to write
 
@@ -74,7 +74,7 @@ rather than
     Logger.i(...)
 ```
 
-### Multiplatform - Filesystem logfiles
+### ![Static Badge](https://img.shields.io/badge/Kotlin_Multiplatform-orange) Filesystem logfiles
 
 * `kermit-filesystem` - writes kermit logs to file (where **Okio** Filesystem is supported) with optional log file rolling based on max file size.
 ```kotlin
@@ -90,11 +90,11 @@ val rootLogger = Kermit {
 }
 ```
 
-### JVM - SLF4J
+### ![Static Badge](https://img.shields.io/badge/JVM-brightgreen) SLF4J
 
 * `slf4j-over-kermit` - SLF4J logger provider (API) over Kermit Core
 * `kermit-over-slf4j` - Kermit log writer that pushes to SLF4J
 
-### Android - Timber
+### ![Static Badge](https://img.shields.io/badge/Android-blue) Timber
 
 * `timber-over-kermit` - Timber `Tree` that sends all logs to Kermit Core
