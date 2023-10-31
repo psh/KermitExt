@@ -10,6 +10,12 @@ Areas of exploration so far
 * Integration with other loggers
 * (upcoming) "what if Kermit was the default logger in Spring?"
 
+## Examples
+
+Most of the modules have standalone `examples` which should be opened as a separate project in your IDE.  
+
+Before any given example project will build you need to run the `publishToMavenLocal` task in the main Kermit Extensions project as the _standalone_ philosophy extends to pulling in the appropriate Kermit extension as a gradle dependency rather than referencing it directly. 
+
 ## Kermit Logger Extensions 
 
 ### ![Static Badge](https://img.shields.io/badge/Kotlin_Multiplatform-orange) `kermit-ext`
