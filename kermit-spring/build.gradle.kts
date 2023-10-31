@@ -16,9 +16,15 @@ kotlin {
     sourceSets {
         val jvmMain by getting {
             dependencies {
+                implementation("org.springframework.boot:spring-boot:3.1.4")
+            }
+        }
+
+        val commonMain by getting {
+            dependencies {
                 api(libs.touchlab.kermit.api)
                 api("com.gatebuzz.kermit.ext:kermit-color:1.0.0")
-                implementation("org.springframework.boot:spring-boot:3.1.4")
+                api("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
             }
         }
     }
