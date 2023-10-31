@@ -3,7 +3,7 @@ package com.gatebuzz.kache
 import kotlin.time.ComparableTimeMark
 import kotlin.time.TimeSource
 
-class LruKache<T>(val maxSize: Int = 32) {
+class LruKache<T>(var maxSize: Int = 32) {
     private val timeSrc = TimeSource.Monotonic
     private val store = mutableMapOf<String, TimestampedEntry<T>>()
 

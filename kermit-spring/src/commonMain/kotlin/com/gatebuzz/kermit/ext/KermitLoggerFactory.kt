@@ -7,6 +7,11 @@ import com.gatebuzz.kache.LruKache
 object KermitLoggerFactory {
     private val loggerCache = LruKache<Logger>()
     var compact: Boolean = true
+    var maxCacheSize: Int
+        get() = loggerCache.maxSize
+        set(value) {
+            loggerCache.maxSize = value
+        }
 
     fun get(): Logger = Logger
 

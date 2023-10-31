@@ -76,6 +76,7 @@ class KermitLoggingSystem(classLoader: ClassLoader) : AbstractLoggingSystem(clas
             configureFormatter(properties)
             configureTag(properties)
             configureMinSeverity(properties)
+            configureLoggerCacheSize(properties)
         } catch (e: Throwable) {
             e.printStackTrace()
             // Do nothing - Kermit generally works out of the box with defaults
@@ -91,6 +92,20 @@ class KermitLoggingSystem(classLoader: ClassLoader) : AbstractLoggingSystem(clas
     private fun Logger.toConfig(name: String): LoggerConfiguration {
         val level = config.minSeverity.logLevel()
         return LoggerConfiguration(name, level, level)
+    }
+
+    private fun configureLoggerCacheSize(properties: Properties) {
+        val size = properties.getProperty("logger.factory.cache.size", "")
+        if (size.isNotEmpty()) {
+            try {
+                val integerSize = size.toInt()
+                if (integerSize > 0) {
+                    KermitLoggerFactory.maxCacheSize = integerSize
+                }
+            } catch (e: Exception) {
+                // Do nothing
+            }
+        }
     }
 
     private fun configureMinSeverity(properties: Properties) {
