@@ -20,7 +20,20 @@ class KermitLoggingSystem(classLoader: ClassLoader) : AbstractLoggingSystem(clas
     }
 
     override fun setLogLevel(loggerName: String?, level: LogLevel?) {
+        println("###> setLogLevel: loggerName=$loggerName, level=$level")
+        println("###>")
+
         setLogLevel(loggerName, levels.convertSystemToNative(level))
+
+        println("###> Loggers")
+        println("###>   ${dumpLoggerInfo(Logger)}")
+        val loggers = KermitLoggerFactory.allLoggers().map { it.second }
+        if (loggers.isNotEmpty()) {
+            loggers.forEach {
+                println("###>   ${dumpLoggerInfo(it)}")
+            }
+        }
+        println("\n")
     }
 
     fun setLogLevel(loggerName: String?, severity: Severity?) {
@@ -85,7 +98,7 @@ class KermitLoggingSystem(classLoader: ClassLoader) : AbstractLoggingSystem(clas
 
     private fun loggerByName(loggerName: String?): Logger {
         return loggerName?.let {
-            KermitLoggerFactory.getOrNull(it) ?: Logger
+            KermitLoggerFactory.withTag(it)
         } ?: Logger
     }
 
@@ -168,4 +181,15 @@ fun LogLevel?.severity(): Severity? = when (this) {
     LogLevel.ERROR -> Severity.Error
     LogLevel.FATAL -> Severity.Error
     LogLevel.OFF, null -> null
+}
+
+fun dumpLoggerInfo(logger: Logger): String = buildString {
+    append("Logger {")
+    append("tag=${logger.tag}")
+    append(", minSeverity=${logger.config.minSeverity}")
+    append(", logWriterList=${logger.config.logWriterList}")
+    append("}")
+    if (logger::class.java.name.contains("Companion")) {
+        append(" **root logger**")
+    }
 }
