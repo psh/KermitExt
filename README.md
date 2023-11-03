@@ -153,8 +153,7 @@ tag.classpath.format=compact
 
 ### Usage
 
-In your `Controller` code, you can use the `kermitLogger()` property delegate to get a logger.  
-This will automatically configure itself with a tag of the current class, although you can pass your
+In your `Controller` code, you can use the `kermitLogger()` property delegate to get a logger.  This will automatically configure itself with a tag of the current class, although you can pass your
 own tag if you need to.
 
 ```kotlin
