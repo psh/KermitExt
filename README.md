@@ -114,3 +114,89 @@ val rootLogger = Kermit {
 ### ![Static Badge](https://img.shields.io/badge/Android-blue) Timber
 
 * `timber-over-kermit` - Timber `Tree` that sends all logs to Kermit Core
+
+## Kermit Spring Support
+
+### ### ![Static Badge](https://img.shields.io/badge/JVM-brightgreen) `kermit-Spring`
+
+Firstly, add the dependency
+```kotlin
+dependencies {
+    // ...
+    
+	implementation("com.gatebuzz.kermit.ext:kermit-spring:1.0.0")
+}
+
+```
+
+Then, pass a parameter as part of the JVM options to tell Spring to use a new logging system
+
+```kotlin
+    -Dorg.springframework.boot.logging.LoggingSystem=com.gatebuzz.kermit.ext.KermitLoggingSystem
+```
+
+Kermit will look for a properties file at startup, but boot up with sane defaults (compact classpath
+representation and no color) - if you want to configure Kermit, drop "kermit.properties" into your
+resources (`/src/main/resources/`) folder, under `com/gatebuzz/kermit/ext` - 
+
+```properties
+# off / on / bright
+color=bright
+
+min.severity=verbose
+
+tag.default=Kermit
+
+# full ("com.example.ClassName"), or leave blank / any other value for compact ("c.e.ClassName")
+tag.classpath.format=compact
+```
+
+### Usage
+
+In your `Controller` code, you can use the `kermitLogger()` property delegate to get a logger.  
+This will automatically configure itself with a tag of the current class, although you can pass your
+own tag if you need to.
+
+```kotlin
+@RestController
+class LoggingController {
+    private val logger by kermitLogger()
+
+    // ...
+}
+```
+or,
+```kotlin
+@RestController
+class LoggingController {
+    private val logger by kermitLogger( "my tag" )
+
+    // ...
+}
+```
+
+### Limitations
+
+Kermit was designed to work on mobile platforms, so it controls the logging level _globally_ rather 
+than Spring's way, where loggers are controlled on a per-logger level (inheriting the default from the
+parent logger)
+
+This means, if you have loggers configured in your `application.properties`
+
+```properties
+## Logging Config
+logging.level.root=TRACE
+management.endpoints.web.exposure.include=loggers
+management.endpoint.loggers.enabled=true
+
+## Custom (per controller) logging level
+logging.level.com.gatebuzz.kermit.ext.spring.LoggingController=INFO
+logging.level.com.gatebuzz.kermit.ext.spring.FooLoggingController=DEBUG
+```
+
+All loggers, across the system will be configured to the _last value_ declared in the configuration.
+
+This seems to be _by design_ to reduce memory footprint for mobile platforms.  Changing to a Spring
+compatible, per-logger logging level would mean a change in the core of Kermit and is beyond the scope
+of this experiment.
+
