@@ -162,14 +162,23 @@ own tag if you need to.
 class LoggingController {
     private val logger by kermitLogger()
 
-    // ...
+    @RequestMapping("/")
+    fun index(): String {
+        logger.v("A VERBOSE / TRACE Message")
+        logger.d("A DEBUG Message")
+        logger.i("An INFO Message")
+        logger.w("A WARN Message")
+        logger.e("An ERROR Message")
+
+        return "Howdy! Check out the Logs to see the output.  Edit the \"kermit.properties\" to change log levels and formatting."
+    }
 }
 ```
 or,
 ```kotlin
 @RestController
 class LoggingController {
-    private val logger by kermitLogger()
+    private val logger by kermitLogger( "my-tag" )
 
     @RequestMapping("/")
     fun index(): String {
