@@ -8,7 +8,7 @@ Areas of exploration so far
 * New API surfaces
 * New flavors of initialization
 * Integration with other loggers
-* (upcoming) "what if Kermit was the default logger in Spring?"
+* "what if Kermit was the default logger in Spring?"
 
 ## Examples
 
