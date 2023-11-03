@@ -117,7 +117,7 @@ val rootLogger = Kermit {
 
 ## Kermit Spring Support
 
-### ### ![Static Badge](https://img.shields.io/badge/JVM-brightgreen) `kermit-Spring`
+### ![Static Badge](https://img.shields.io/badge/JVM-brightgreen) `kermit-Spring`
 
 Firstly, add the dependency
 ```kotlin
