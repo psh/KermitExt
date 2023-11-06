@@ -4,11 +4,21 @@ This repo contains a series of working but (as yet) unreleased thought experimen
 
 Areas of exploration so far
 * Native platform integrations
+    * `kermit-ext`
 * Message formatting
+    * `kermit-color`
 * New API surfaces
+    * `kermit-long-names`
 * New flavors of initialization
+    * `kermit-config`
 * Integration with other loggers
+    * `slf4j-over-kermit` and `kermit-over-slf4j`
+    * `timber-over-kermit`
 * "what if Kermit was the default logger in Spring?"
+    * `kermit-spring`
+
+Upcoming
+* "what if Kermit was the default logger in Ktor?"
 
 ## Examples
 
